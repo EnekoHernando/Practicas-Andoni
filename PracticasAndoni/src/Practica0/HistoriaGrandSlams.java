@@ -41,7 +41,7 @@ public class HistoriaGrandSlams {
 				String[] campos = linea.split(",");
 				String r = "";
 				for(int i=7;i<campos.length;i++) {
-					r+=" "+campos[i];
+					r+=", "+campos[i];
 				}
 				Tenista t1;
 				Tenista t2;

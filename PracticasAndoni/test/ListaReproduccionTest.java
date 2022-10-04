@@ -13,7 +13,7 @@ import practica1.ListaDeReproduccion;
 class ListaReproduccionTest {
 	private ListaDeReproduccion lr1;
 	private ListaDeReproduccion lr2;
-	private final File FIC_TEST1 = new File("test/res/No del grupo.mp4");
+	private final File FIC_TEST1 = new File("src/test/res/No del grupo.mp4");
 	@Before
 	public void setUp() throws Exception{
 		lr1 = new ListaDeReproduccion();

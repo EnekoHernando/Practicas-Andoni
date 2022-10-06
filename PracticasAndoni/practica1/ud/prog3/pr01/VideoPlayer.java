@@ -1,4 +1,4 @@
-package practica1;
+package ud.prog3.pr01;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -6,6 +6,7 @@ import java.awt.event.*;
 import javax.swing.*;
 
 import java.io.File;
+import java.util.Random;
 
 import uk.co.caprica.vlcj.factory.discovery.NativeDiscovery;
 import uk.co.caprica.vlcj.player.base.MediaPlayer;
@@ -99,7 +100,8 @@ public class VideoPlayer extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				paraVideo();
-				listaRepVideos.irASiguiente();
+				if(cbAleatorio.isSelected()) irARandom();
+				else listaRepVideos.irASiguiente();
 				lanzaVideo();
 			}
 		});
@@ -108,7 +110,7 @@ public class VideoPlayer extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if (mediaPlayerComponent.mediaPlayer().status().isPlayable()) {
 					if (mediaPlayerComponent.mediaPlayer().status().isPlaying()) {
-						// TODO: hacer pausa
+						
 					} else {
 						// TODO: hacer play
 					}
@@ -177,6 +179,17 @@ public class VideoPlayer extends JFrame {
 		} else {
 			lCanciones.setSelectedIndices( new int[] {} );
 		}
+	}
+	/** Selecciona un fichero aleatorio de la lista de reproducción.
+	* @return true si la selección es correcta, false si hay error y no se puede seleccionar
+	*/
+	public boolean irARandom() {
+		if(listaRepVideos.size()<=1) return false;
+		int n = listaRepVideos.getFicSeleccionado();
+		while(n==listaRepVideos.getFicSeleccionado()) 
+		n = new Random().nextInt(listaRepVideos.size());
+		listaRepVideos.ficheroEnCurso=n;
+		return true;
 	}
 	
 	// Pide interactivamente una carpeta para coger vídeos

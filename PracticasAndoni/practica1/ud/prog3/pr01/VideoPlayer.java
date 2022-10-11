@@ -110,9 +110,9 @@ public class VideoPlayer extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if (mediaPlayerComponent.mediaPlayer().status().isPlayable()) {
 					if (mediaPlayerComponent.mediaPlayer().status().isPlaying()) {
-						
+						mediaPlayerComponent.mediaPlayer().controls().pause();
 					} else {
-						// TODO: hacer play
+						mediaPlayerComponent.mediaPlayer().controls().play();
 					}
 				} else {
 					lanzaVideo();
